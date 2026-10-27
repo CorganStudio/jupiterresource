@@ -460,6 +460,8 @@
     mesh.position.set(m.a * Math.cos(m.phase), 0, m.a * Math.sin(m.phase));
   });
 
+  var JUPITER_TILT_RAD = 0.054629; // 3.13 deg, same as tiltGroup.rotation.z
+
   // ═══ REAL MOON POSITIONS (JPL Horizons via Supabase edge fn) ═══
   // Anchors each Galilean/inner/irregular moon to its true Jupiter-centered
   // position at page load. Horizons returns ecliptic J2000 km; we map to
@@ -529,7 +531,6 @@
   // within OrbitControls max zoom (500). Users zoom out to see the full
   // orbit. Periapsis is just above Jupiter's surface at ~1.6 units.
   var JUPITER_SCENE_UNIT_KM = 71492 / 1.5;
-  var JUPITER_TILT_RAD = 0.054629; // 3.13 deg, same as tiltGroup.rotation.z
   var JUNO = {
     slug: 'juno',
     a: 4055000 / JUPITER_SCENE_UNIT_KM,  // ~85.1 scene units
