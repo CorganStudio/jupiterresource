@@ -1,0 +1,30 @@
+# JupiterResource
+
+> Domain research archive for Jupiter. Literature reviews and primary-source analyses. Curated by Corgan Studio, Inc.
+
+Research Archive: https://jupiterresource.net/research/ (literature reviews by Corgan Studio, Inc., open to read).
+
+## Research Archive
+
+- [Galilean moon tidal heating budgets: from Peale 1979 to Galileo and Juno](https://jupiterresource.net/research/galilean-tidal-heating): Review of the tidal-heating energy budgets for Io, Europa, Ganymede, and Callisto, from the prediction of Io's volcanism to the present-day constraints from Galileo and Juno mass-loss and gravity-field measurements.
+- [Great Red Spot size evolution and convective dynamics](https://jupiterresource.net/research/great-red-spot-evolution): Review of the Great Red Spot's measured size evolution from 1879 to 2026, the recent acceleration of shrinkage observed since 2012, the Juno deep-structure constraints, and the convective and barotropic-instability mechanisms proposed for the storm's persistence and current decline.
+- [Jovian magnetospheric structure and the Io plasma torus](https://jupiterresource.net/research/jovian-magnetosphere-io-plasma-torus): Review of Jupiter's magnetospheric architecture, with focus on the Io plasma torus as the dominant internal mass source, current-sheet dynamics, and Juno-era constraints on auroral processes.
+- [JUICE and Europa Clipper: target observation plans for Jovian icy moons](https://jupiterresource.net/research/juice-europa-clipper): Review of the science objectives and target-observation plans for ESA's JUICE (Jupiter Icy Moons Explorer) and NASA's Europa Clipper missions, the Ganymede vs Europa-vs-Callisto observational priorities, and the cross-mission coordination for shared Jovian-system science.
+- [Juno deep atmospheric microwave probing of Jupiter](https://jupiterresource.net/research/juno-microwave-atmosphere): Review of the Juno Microwave Radiometer (MWR) results on Jupiter's deep atmosphere, the implications for ammonia abundance and meridional structure, the deep-water-cloud absent-detection result, and the constraints on dynamics below the visible cloud deck.
+
+## Related archives
+
+- [TerraResource Research Archive](https://terraresource.net/research/)
+- [MoonResource Research Archive](https://moonresource.com/research/)
+- [MarsResource Research Archive](https://marsresource.net/research/)
+- [SunResource Research Archive](https://sunresource.net/research/)
+- [MercuryResource Research Archive](https://mercuryresource.net/research/)
+- [VenusResource Research Archive](https://venusresource.net/research/)
+- [SaturnResource Research Archive](https://saturnresource.net/research/)
+- [UranusResource Research Archive](https://uranusresource.net/research/)
+- [NeptuneResource Research Archive](https://neptuneresource.net/research/)
+- [PlutoResource Research Archive](https://plutoresource.net/research/)
+- [GalacticResource Research Archive](https://galacticresource.com/research/)
+- [SolarSystemResource Research Archive](https://solarsystemresource.com/research/)
+
+Sitemap: https://jupiterresource.net/sitemap.xml
