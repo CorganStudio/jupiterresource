@@ -293,6 +293,7 @@
     <div class="info-row"><span>Sibling sites</span><span>13</span></div>
     <div class="info-row"><span>Auth</span><span>Shared</span></div>
     <div class="info-row"><span>DSN feed</span><span>Live</span></div>
+    <div class="info-row"><span>Textures</span><span><a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener" style="color:inherit">Solar System Scope</a> (<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" style="color:inherit">CC BY 4.0</a>)</span></div>
   </div>
 
   <div class="viewer">
@@ -460,6 +461,8 @@
     mesh.position.set(m.a * Math.cos(m.phase), 0, m.a * Math.sin(m.phase));
   });
 
+  var JUPITER_TILT_RAD = 0.054629; // 3.13 deg, same as tiltGroup.rotation.z
+
   // ═══ REAL MOON POSITIONS (JPL Horizons via Supabase edge fn) ═══
   // Anchors each Galilean/inner/irregular moon to its true Jupiter-centered
   // position at page load. Horizons returns ecliptic J2000 km; we map to
@@ -529,7 +532,6 @@
   // within OrbitControls max zoom (500). Users zoom out to see the full
   // orbit. Periapsis is just above Jupiter's surface at ~1.6 units.
   var JUPITER_SCENE_UNIT_KM = 71492 / 1.5;
-  var JUPITER_TILT_RAD = 0.054629; // 3.13 deg, same as tiltGroup.rotation.z
   var JUNO = {
     slug: 'juno',
     a: 4055000 / JUPITER_SCENE_UNIT_KM,  // ~85.1 scene units
@@ -765,7 +767,7 @@
 
   // ═══ LAYER TOGGLE SYSTEM ═══
   var LAYERS = [
-    { id: 'surface', name: 'Cloud Bands',        desc: '8K Cassini/Voyager ISS composite',               visible: true },
+    { id: 'surface', name: 'Cloud Bands',        desc: '8K texture, Solar System Scope (based on NASA imagery)',               visible: true },
     { id: 'grs',     name: 'Great Red Spot',     desc: '~400-year-old anticyclonic storm, 22S 75W',      visible: true },
     { id: 'moons',   name: 'Galilean Moons',     desc: 'Io, Europa, Ganymede, Callisto (real Kepler)',   visible: true },
     { id: 'orbits',  name: 'Moon Orbit Lines',   desc: 'Circular orbit approximations',                  visible: true },
