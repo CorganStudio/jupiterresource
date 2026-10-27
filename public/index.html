@@ -320,7 +320,7 @@
 <!-- Three.js (via jsdelivr UMD) -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js" integrity="sha384-vV17nr/rMaJqmeZkFUzXLpHdQ+ME5QHKdydaqqN+3Ga39RJlNrTatJxHwGV4ml2C" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js" integrity="sha384-I0DMsfimAPIqWT8lF+oA997gRgdUi3jhidoTq3fN0zmn35smXZukD01FLnsPRU9i" crossorigin="anonymous"></script>
-<script src="resource-systems-core.js?v=26"></script>
+<script src="resource-systems-core.js?v=27"></script>
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════════
@@ -337,8 +337,7 @@
   camera.position.set(0, 1.2, 4);
 
   var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
-  // Cap at 1.5x: near-Retina sharpness at ~56% of the GPU pixel cost of 2x
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  renderer.setPixelRatio(RS.pixelRatio());
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   // Lights
@@ -1013,31 +1012,16 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
-  // Animate on demand: render while time runs, the camera moves, or input/loads happened recently;
-  // otherwise one frame per second as a safety net. Hidden tabs render nothing.
-  var __rs_wakeUntil = 0, __rs_lastRender = 0;
-  function rsWake() { __rs_wakeUntil = performance.now() + 1000; }
-  window.__rs_invalidate = rsWake;
-  controls.addEventListener('change', rsWake);
-  ['pointerdown', 'pointerup', 'wheel', 'keydown', 'click', 'touchstart', 'touchend', 'change', 'input', 'resize'].forEach(function(ev) {
-    window.addEventListener(ev, rsWake, { passive: true, capture: true });
-  });
-  THREE.DefaultLoadingManager.onLoad = rsWake;
-  THREE.DefaultLoadingManager.onProgress = rsWake;
-  document.addEventListener('visibilitychange', function() { if (!document.hidden) rsWake(); });
+  // Animate
+  var quiet = RS.quietThree({ controls: controls, fps: 30 });
   function tick() {
     requestAnimationFrame(tick);
     planet.rotation.y += 0.0001759 * ((window.__rs_time_scale != null ? window.__rs_time_scale : 60) / 60);
     updateMoons();
     controls.update();
-    if (document.hidden) return;
-    var now = performance.now();
-    if (window.__rs_time_scale || now < __rs_wakeUntil || now - __rs_lastRender >= 1000) {
-      __rs_lastRender = now;
-      renderer.render(scene, camera);
-    }
+    // fan control: a paused scene draws once a second, moving time at 30fps
+    if (quiet.frame((window.__rs_time_scale != null ? window.__rs_time_scale : 60) !== 0)) renderer.render(scene, camera);
   }
-  rsWake();
   tick();
 
   // ═══ TIME SCALE CONTROL ═══
